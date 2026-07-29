@@ -1,0 +1,56 @@
+[0m[0;4m [0m[0m[0;4m UNIT                                                 [0m[0m[0;4m LOAD  [0m[0m[0;4m ACTIVE[0m[0m[0;4m SUB    [0m[0m[0;4m DESCRIPTION                                                          [0m
+  alanv_hi.service                                      loaded active running Laravel Queue Worker (High/Medium/Default)
+  alanvaghteshe-webserver.service                       loaded active running Laravel Octane (FrankenPHP)
+  alanvaghteshe.service                                 loaded active running Laravel Queue Worker (Default Queue)
+  auditd.service                                        loaded active running Security Auditing Service
+  btpanel.service                                       loaded active running BT-Panel - simple and safe web control panel
+  containerd.service                                    loaded active running containerd container runtime
+  cron.service                                          loaded active running Regular background program processing daemon
+  dbus.service                                          loaded active running D-Bus System Message Bus
+  docker.service                                        loaded active running Docker Application Container Engine
+  dovecot.service                                       loaded active running Dovecot IMAP/POP3 email server
+  getty@tty1.service                                    loaded active running Getty on tty1
+  haproxy.service                                       loaded active running HAProxy Load Balancer
+  irqbalance.service                                    loaded active running irqbalance daemon
+  maldet.service                                        loaded active running Linux Malware Detect monitoring - maldet
+  mata-default.service                                  loaded active running Laravel Queue Worker (Default Queue)
+  mata-priority.service                                 loaded active running Laravel Queue Worker (Priority Queues)
+  memcached.service                                     loaded active running LSB: memcached - Memory caching daemon
+  ModemManager.service                                  loaded active running Modem Manager
+  multipathd.service                                    loaded active running Device-Mapper Multipath Device Controller
+  mysqld.service                                        loaded active running LSB: start and stop MySQL
+  netdata.service                                       loaded active running netdata - Real-time performance monitoring
+  networkd-dispatcher.service                           loaded active running Dispatcher daemon for systemd-networkd
+  packagekit.service                                    loaded active running PackageKit Daemon
+  php-fpm-74.service                                    loaded active running LSB: starts php-fpm
+  php-fpm-83.service                                    loaded active running LSB: starts php-fpm
+  php-fpm-84.service                                    loaded active running LSB: starts php-fpm
+  polkit.service                                        loaded active running Authorization Manager
+  postfix@-.service                                     loaded active running Postfix Mail Transport Agent (instance -)
+  pure-ftpd.service                                     loaded active running LSB: starts pureftpd server
+  redis.service                                         loaded active running LSB: starts Redis
+  rspamd.service                                        loaded active running rapid spam filtering system
+  rsyslog.service                                       loaded active running System Logging Service
+  site_total.service                                    loaded active running Site Total Service
+  snap.canonical-livepatch.canonical-livepatchd.service loaded active running Service for snap application canonical-livepatch.canonical-livepatchd
+  snapd.service                                         loaded active running Snap Daemon
+  ssh.service                                           loaded active running OpenBSD Secure Shell server
+  supervisord.service                                   loaded active running Process Monitoring and Control Daemon
+  systemd-journald.service                              loaded active running Journal Service
+  systemd-logind.service                                loaded active running User Login Management
+  systemd-networkd.service                              loaded active running Network Configuration
+  systemd-resolved.service                              loaded active running Network Name Resolution
+  systemd-timesyncd.service                             loaded active running Network Time Synchronization
+  systemd-udevd.service                                 loaded active running Rule-based Manager for Device Events and Files
+  udisks2.service                                       loaded active running Disk Manager
+  unattended-upgrades.service                           loaded active running Unattended Upgrades Shutdown
+  upower.service                                        loaded active running Daemon for power management
+  user@0.service                                        loaded active running User Manager for UID 0
+  uuidd.service                                         loaded active running Daemon for generating UUIDs
+  v2ray.service                                         loaded active running V2Ray Service
+  vnstat.service                                        loaded active running vnStat network traffic monitor
+
+LOAD   = Reflects whether the unit definition was properly loaded.
+ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
+SUB    = The low-level unit activation state, values depend on unit type.
+50 loaded units listed.

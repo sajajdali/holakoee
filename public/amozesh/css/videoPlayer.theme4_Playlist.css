@@ -1,0 +1,208 @@
+/*=====================================*/
+/*===========item general===========*/
+/*=====================================*/
+/*item left container with thumbnail_image*/
+.ult_vp_itemLeft{
+    position: absolute;
+    width:60px;
+    height: 50px;
+    z-index: 100;
+}
+/*item right container with title and description*/
+.ult_vp_itemRight{
+    position: absolute;
+    right: 0px;
+    left: 70px;
+    top: 5px;
+    font-family: Arial,Helvetica,sans-serif;
+}
+.ult_vp_title{
+    width: 100%;
+    font-size: 13px;
+    font-weight:bold;
+    font-size: 11px;
+    color: #fff;
+    display:none;
+}
+.ult_vp_description{
+    font-size: 10px;
+    color: #e4e4e4;
+    width: 100%;
+    font-size: 11px;
+    padding: 2px 0px 5px 0px;
+    display:none;
+}
+.ult_vp_thumbnail_image{
+    position:absolute;
+    height: 100%;
+    margin: 5px 5px 5px 5px;
+}
+
+/*=====================================*/
+/*===========right playlist===========*/
+/*=====================================*/
+#ult_vp_playlist{
+	position:absolute;
+	background: #212121;
+	width:75px;
+	top:0px;
+	overflow:hidden;
+
+}
+#ult_vp_playlistContent{
+	position:absolute;
+	background: #191919;
+	top:0px;
+	left:0px;
+	width:100%;
+    margin: 0px;
+    padding: 0px;
+}
+.ult_vp_item{
+	position:relative;
+	width:100%;
+	height:60px;
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+	background:#212121;
+    color: #ffffff;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    cursor:pointer;
+}
+.ult_vp_item:hover{
+	width:100%;
+    box-shadow: 70px 0px 0px 0px rgb(46, 236, 122) inset;
+}
+.ult_vp_itemSelected{
+    position:absolute;
+
+    width:100%;
+    height:60px;
+    box-shadow: 70px 0px 0px 0px rgb(46, 236, 122) inset;
+}
+.ult_vp_itemUnselected{
+    position:absolute;
+
+    width:100%;
+    height:60px;
+}
+
+.ult_vp_myScrollbarV {
+    position:absolute;
+    z-index:100;
+    width:1px;bottom:0px;top:0px;right:2px;
+}
+.ult_vp_myScrollbarV > div {
+    position:absolute;
+    z-index:100;
+    width:100%;
+
+    background: rgb(46, 236, 122);
+}
+.ult_vp_topArrow{
+    position: absolute;
+    right: 0;
+    z-index: 101;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+    background: rgba(44, 44, 44, 0.45);
+}
+.ult_vp_bottomArrow{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 101;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+    background: rgba(44, 44, 44, 0.45);
+}
+
+
+/*=====================================*/
+/*===========bottom playlist===========*/
+/*=====================================*/
+#ult_vp_playlist_bottom{
+    position:absolute;
+    background: #212121;
+    height:64px;
+    overflow:hidden;
+}
+#ult_vp_playlistContent_bottom{
+    position:absolute;
+    background: #191919;
+    top:0px;
+    left:0px;
+    height:100%;
+    margin: 0;
+    padding: 0;
+}
+.ult_vp_item_bottom{
+    position: absolute;
+    width:250px;/*fixed width*/
+    height: 100%;
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+    background:#212121;
+    color: #ffffff;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    cursor:pointer;
+}
+.ult_vp_item_bottom:hover{
+    width:70px;
+    height:60px;
+    box-shadow: 70px 0px 0px 0px rgb(46, 236, 122) inset;
+}
+.ult_vp_itemSelected_bottom{
+    position:absolute;
+    width:70px;
+    height:60px;
+    box-shadow: 70px 0px 0px 0px rgb(46, 236, 122) inset;
+}
+.ult_vp_itemUnselected_bottom{
+    position: absolute;
+    width: 70px;
+    height: 60px;
+}
+.ult_vp_leftArrow{
+    position: absolute;
+    width: 25px;
+    height: 50%;
+    top: 50%;
+    margin-top: -16px;
+    cursor: pointer;
+    background: rgba(44, 44, 44, 0.45);
+}
+.ult_vp_rightArrow{
+    right:0;
+    position: absolute;
+    width: 25px;
+    height: 50%;
+    top: 50%;
+    margin-top: -16px;
+    cursor: pointer;
+    background: rgba(44, 44, 44, 0.45);
+}
+/*=========Horizontal scrollbar=============*/
+.ult_vp_myScrollbarH {
+    position:absolute;
+    z-index:100;height: 1px;bottom: 2px;left:0px;right:0px
+}
+
+.ult_vp_myScrollbarH > div {
+    position:absolute;
+    z-index:100;
+    height:100%;
+
+    /* The following is probably what you want to customize */
+    background: rgb(46, 236, 122);
+}

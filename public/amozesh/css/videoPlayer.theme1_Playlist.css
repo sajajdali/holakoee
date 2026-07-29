@@ -1,0 +1,318 @@
+/*=====================================*/
+/*===========item general===========*/
+/*=====================================*/
+.ult_vp_title{
+    color: #F11116;
+    width: 100%;
+    font-size: 12px;
+    direction: rtl;
+    font-weight:bold;
+}
+.ult_vp_description{
+    width: 100%;
+    padding: 2px 0px 5px 0px;
+    font-size: 12px;
+
+    color: rgba(255, 255, 255, 0.43);
+}
+.ult_vp_thumbnail_image{
+    position:absolute;
+    height: 100%;
+    margin: 5px 5px 5px 5px;
+    border: 1px solid;
+    border-top-color: #4E4E4E;
+    border-right-color: #4E4E4E;
+    border-bottom-color: #4E4E4E;
+    border-left-color: #4E4E4E;
+}
+/*item left container with thumbnail_image*/
+.ult_vp_itemLeft{
+    position: absolute;
+    width:60px;
+    height: 50px;
+    z-index: 100;
+}
+/*item right container with title and description*/
+.ult_vp_itemRight{
+    position: absolute;
+    right: 0px;
+    left: 70px;
+    padding-right: 5px;
+    direction: rtl;
+    top: 5px;
+    font-family: Tahoma,Helvetica,sans-serif;
+}
+/*=====================================*/
+/*===========right playlist===========*/
+/*=====================================*/
+#ult_vp_playlist{
+	position:absolute;
+	background: #212121;
+	width:260px;
+	/*top:0px;*/
+	overflow:hidden;
+}
+#ult_vp_playlistContent{
+	position:absolute;
+	background: #191919;
+	top:0px;
+	left:0px;
+	width:100%;
+    margin: 0px;
+    padding: 0px;
+}
+.ult_vp_item{
+	position:relative;
+	width:100%;
+	height:60px;
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+	background:#212121;
+	border: 1px solid;
+	border-top-color: #333333;
+	border-left-color: #333333;
+	border-bottom-color: #000000;
+	border-right-color: #000000;
+    color: #ffffff;
+    font-family: Tahoma,Helvetica,sans-serif;
+    font-size: 11px;
+    cursor:pointer;
+}
+.ult_vp_item:hover{
+    width:100%;
+    height:64px;
+    background: #353535;
+    border: 1px solid #353535;
+    border-top-color: #353535;
+    border-left-color: #353535;
+    border-bottom-color: #353535;
+}
+.ult_vp_itemSelected{
+    position:absolute;
+
+	width:100%;
+	height:64px;
+	background: #353535;
+	border: 1px solid #353535;
+	border-top-color: #353535;
+	border-left-color: #353535;
+	border-bottom-color: #353535;
+}
+.ult_vp_itemUnselected{
+    position: absolute;
+    width: 100%;
+    height: 64px;
+    background: #222222;
+    border: 1px solid;
+    border-top-color: #3C3C3C;
+    border-left-color: #3C3C3C;
+    border-bottom-color: #000000;
+    border-right-color: #000000;
+}
+.ult_vp_topArrow{
+    position: absolute;
+    right: 0;
+    z-index: 101;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+    border: 1px solid ;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    /*-webkit-border-radius: 5px;*/
+    /*border-radius: 5px;*/
+    border-top-color: #333;
+    border-right-color: #333;
+    border-bottom-color: #333;
+    border-left-color: #333;
+    background: #000000;
+    background: -moz-linear-gradient(top, #272727, #000000);
+    background: -o-linear-gradient(top, #272727, #000000);
+    background: -webkit-gradient(linear, left top, left bottom, from(#272727), to(#000000));
+    background: -ms-linear-gradient(#272727, #000);/*For IE10*/
+    background: linear-gradient(#272727, #000);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#272727', endColorstr='#000000');/*For IE7-8-9*/
+}
+.ult_vp_bottomArrow{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 101;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+    border: 1px solid ;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    /*-webkit-border-radius: 5px;*/
+    /*border-radius: 5px;*/
+    border-top-color: #333;
+    border-right-color: #333;
+    border-bottom-color: #333;
+    border-left-color: #333;
+    background: #000000;
+    background: -moz-linear-gradient(top, #272727, #000000);
+    background: -o-linear-gradient(top, #272727, #000000);
+    background: -webkit-gradient(linear, left top, left bottom, from(#272727), to(#000000));
+    background: -ms-linear-gradient(#272727, #000);/*For IE10*/
+    background: linear-gradient(#272727, #000);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#272727', endColorstr='#000000');/*For IE7-8-9*/
+}
+/*=========Vertical scrollbar=============*/
+.ult_vp_myScrollbarV {
+    position:absolute;
+    z-index:100;
+    width:8px;bottom:31px;top:31px;right:0px
+}
+
+.ult_vp_myScrollbarV > div {
+    position:absolute;
+    z-index:100;
+    width:100%;
+
+    background:#191919;
+    border: 1px solid;
+    border-top-color: #666666;
+    border-left-color: #666666;
+    border-bottom-color: #000000;
+    border-right-color: #000000;
+}
+
+
+
+
+/*=====================================*/
+/*===========bottom playlist===========*/
+/*=====================================*/
+#ult_vp_playlist_bottom{
+    position:absolute;
+    background: #212121;
+    height:64px;
+    overflow:hidden;
+}
+#ult_vp_playlistContent_bottom{
+    position:absolute;
+    background: #191919;
+    top:0px;
+    left:0px;
+    height:100%;
+    margin: 0;
+    padding: 0;
+}
+.ult_vp_item_bottom{
+    position: absolute;
+    width:250px;/*fixed width*/
+    height: 100%;
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+    border: 1px solid;
+    border-top-color: #333333;
+    border-left-color: #333333;
+    border-right-color: #000000;
+    border-bottom-color: #000;
+    cursor:pointer;
+}
+.ult_vp_item_bottom:hover{
+    width:252px;
+    height:64px;
+    background: #353535;
+    border: 1px solid #353535;
+    border-top-color: #353535;
+    border-left-color: #353535;
+    border-bottom-color: #353535;
+}
+.ult_vp_itemSelected_bottom{
+    position:absolute;
+
+    width:252px;
+    height:64px;
+    background: #353535;
+    border: 1px solid #353535;
+}
+.ult_vp_itemUnselected_bottom{
+    position: absolute;
+    width: 252px;
+    height: 64px;
+    background: #222222;
+    border: 1px solid;
+    border-top-color: #3C3C3C;
+    border-left-color: #3C3C3C;
+    border-bottom-color: #000000;
+    border-right-color: #000000;
+}
+.ult_vp_leftArrow{
+    position: absolute;
+    width: 25px;
+    height: 50%;
+    top: 50%;
+    margin-top: -16px;
+    cursor: pointer;
+
+    border: 1px solid ;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    /*-webkit-border-radius: 5px;*/
+    /*border-radius: 5px;*/
+    border-top-color: #333;
+    border-right-color: #333;
+    border-bottom-color: #333;
+    border-left-color: #333;
+    background: #000000;
+    background: -moz-linear-gradient(top, #272727, #000000);
+    background: -o-linear-gradient(top, #272727, #000000);
+    background: -webkit-gradient(linear, left top, left bottom, from(#272727), to(#000000));
+    background: -ms-linear-gradient(#272727, #000);/*For IE10*/
+    background: linear-gradient(#272727, #000);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#272727', endColorstr='#000000');/*For IE7-8-9*/
+}
+.ult_vp_rightArrow{
+    right:0;
+    position: absolute;
+    width: 25px;
+    height: 50%;
+    top: 50%;
+    margin-top: -16px;
+    cursor: pointer;
+
+    border: 1px solid ;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    /*-webkit-border-radius: 5px;*/
+    /*border-radius: 5px;*/
+    border-top-color: #333;
+    border-right-color: #333;
+    border-bottom-color: #333;
+    border-left-color: #333;
+    background: #000000;
+    background: -moz-linear-gradient(top, #272727, #000000);
+    background: -o-linear-gradient(top, #272727, #000000);
+    background: -webkit-gradient(linear, left top, left bottom, from(#272727), to(#000000));
+    background: -ms-linear-gradient(#272727, #000);/*For IE10*/
+    background: linear-gradient(#272727, #000);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#272727', endColorstr='#000000');/*For IE7-8-9*/
+}
+/*=========Horizontal scrollbar=============*/
+.ult_vp_myScrollbarH {
+    position:absolute;
+    z-index:100;height: 8px;bottom: 1px;left:1px;right:1px
+}
+
+.ult_vp_myScrollbarH > div {
+    position:absolute;
+    z-index:100;
+    height:100%;
+
+    /* The following is probably what you want to customize */
+    background:#191919;
+    border: 1px solid;
+    border-top-color: #666666;
+    border-left-color: #666666;
+    border-bottom-color: #000000;
+    border-right-color: #000000;
+}
+
+
+
+

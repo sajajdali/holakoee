@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="css/videoPlayerMain.css" type="text/css">
+    <link rel="stylesheet" href="css/videoPlayer.theme1.css?ver=1" type="text/css">
+    <link rel="stylesheet" href="css/videoPlayer.theme1_Playlist.css?ver=1.1" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="css/font-awesome.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+    <script src="js/froogaloop.js" type="text/javascript"></script>
+    <script src="js/IScroll4Custom.js" type="text/javascript"></script>
+    <script src='js/THREEx.FullScreen.js'></script>
+    <title>معرفی سیستم  دکتر هلاکویی</title>
+    <script src="js/videoPlayer.js" type="text/javascript"></script>
+    <script src="js/Playlist.js" type="text/javascript"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function ($) {
+            videoPlayer = $("#video").Video({           //ALL PLUGIN OPTIONS
+                autohideControls: 4,                     //autohide HTML5 player controls
+                videoPlayerWidth: 1200,                   //total player width
+                videoPlayerHeight: 600,                  //total player height
+                playlist: "Right playlist",              //choose playlist type: "Right playlist","Bottom playlist", "Off"
+                autoplay: false,                         //autoplay when webpage loads
+                vimeoColor: "F11116",                    //"hexadecimal value", default vimeo color  00adef
+                youtubeSkin: "dark",                     //youtube theme: light,dark
+                youtubeColor: "red",                     //youtube color: red, white
+                videoPlayerShadow: "effect1",            //choose player shadow:  "effect1" , "effect2", "effect3", "effect4", "effect5", "effect6", "off"
+                posterImg: "images/preview_images/s4.png",//player poster image
+                onFinish: "نمایش ویدئو بعدی",             //"Play next video","Restart video", "Stop video",
+                nowPlayingText: "Yes",                   //enable disable now playing title: "Yes","No"
+                fullscreen: "Fullscreen native",         //choose fullscreen type: "Fullscreen native","Fullscreen browser"
+                rightClickMenu: true,                    //enable/disable right click over player: true/false
+                shareShow: "No",                        //enable/disable share option: "Yes","No"
+                facebookLink: "http://codecanyon.net/",  //link to go when facebook button clicked
+                twitterLink: "http://codecanyon.net/",   //link to go when twitter button clicked
+                logoShow: "No",                         //"Yes","No"
+                logoClickable: "Yes",                    //"Yes","No"
+                logoPath: "images/logo/logo.png",        //path to logo image
+                logoGoToLink: "http://codecanyon.net/",  //redirect to page when logo clicked
+                logoPosition: "bottom-right",            //choose logo position: "bottom-right","bottom-left"
+                embedShow: "No",                        //enable/disable embed option: "Yes","No"
+                embedCodeSrc: "www.yourwebsite.com/player/index.html", //path to your video player on server
+                embedCodeW: "746",                       //embed player code width
+                embedCodeH: "420",                       //embed player code height
+                videos: [
+                    {
+                        videoType: "HTML5",
+                        title: "غذای پایه",
+                        youtubeID: "XMGoYNoMtOQ",
+                        vimeoID: "46515976",
+                        mp4: "videos/basic_food.mp4",
+                        webm: "videos/webm/login.webm",
+                        videoAdShow: "No",
+                        videoAdGotoLink: "#",
+                        mp4AD: "videos/basic_food.mp4",
+                        webmAD: "videos/1-login.webm",
+                        description: "لیست غذاهای پایه",
+                        thumbImg: "images/thumbnail_images/p1.jpg",
+                        info: "ورود به مدیریت"
+                    },
+                    {
+                        videoType: "HTML5",
+                        title: "غذاهای ترکیبی",
+                        youtubeID: "XMGoYNoMtOQ",
+                        vimeoID: "46515976",
+                        mp4: "videos/foods_step1.mp4",
+                        webm: "videos/webm/login.webm",
+                        videoAdShow: "No",
+                        videoAdGotoLink: "#",
+                        mp4AD: "videos/foods_step1.mp4",
+                        webmAD: "videos/1-login.webm",
+                        description: "اضافه و ویرایش غذاهای ترکیبی",
+                        thumbImg: "images/thumbnail_images/p1.jpg",
+                        info: "ورود به مدیریت"
+                    },
+                    {
+                        videoType: "HTML5",
+                        title: "غذاهای ترکیبی ۲",
+                        youtubeID: "XMGoYNoMtOQ",
+                        vimeoID: "46515976",
+                        mp4: "videos/foods_step2.mp4",
+                        webm: "videos/webm/login.webm",
+                        videoAdShow: "No",
+                        videoAdGotoLink: "#",
+                        mp4AD: "videos/foods_step2.mp4",
+                        webmAD: "videos/1-login.webm",
+                        description: "تکمیلی غذاهای ترکیبی",
+                        thumbImg: "images/thumbnail_images/p1.jpg",
+                        info: "ورود به مدیریت"
+                    },
+                    {
+                        videoType: "HTML5",
+                        title: "پروفایل کاربران",
+                        youtubeID: "XMGoYNoMtOQ",
+                        vimeoID: "46515976",
+                        mp4: "videos/user_profile.mp4",
+                        webm: "videos/webm/login.webm",
+                        videoAdShow: "No",
+                        videoAdGotoLink: "#",
+                        mp4AD: "videos/user_profile.mp4",
+                        webmAD: "videos/1-login.webm",
+                        description: "بخش مدیریت پروفایل کاربران",
+                        thumbImg: "images/thumbnail_images/p1.jpg",
+                        info: "ورود به مدیریت"
+                    },
+                    {
+                        videoType: "HTML5",
+                        title: "نمایندگان",
+                        youtubeID: "XMGoYNoMtOQ",
+                        vimeoID: "46515976",
+                        mp4: "videos/agent.mp4",
+                        webm: "videos/webm/login.webm",
+                        videoAdShow: "No",
+                        videoAdGotoLink: "#",
+                        mp4AD: "videos/agent.mp4",
+                        webmAD: "videos/1-login.webm",
+                        description: "مدیریت بخش نمایندگان",
+                        thumbImg: "images/thumbnail_images/p1.jpg",
+                        info: "ورود به مدیریت"
+                    },
+                    {
+                        videoType: "HTML5",
+                        title: "پکیج ها",
+                        youtubeID: "XMGoYNoMtOQ",
+                        vimeoID: "46515976",
+                        mp4: "videos/packages.mp4",
+                        webm: "videos/webm/login.webm",
+                        videoAdShow: "No",
+                        videoAdGotoLink: "#",
+                        mp4AD: "videos/packages.mp4",
+                        webmAD: "videos/1-login.webm",
+                        description: "مدیریت پکیج ها",
+                        thumbImg: "images/thumbnail_images/p1.jpg",
+                        info: "ورود به مدیریت"
+                    },
+                    {
+                        videoType: "HTML5",
+                        title: "پلن ها",
+                        youtubeID: "XMGoYNoMtOQ",
+                        vimeoID: "46515976",
+                        mp4: "videos/plan.mp4",
+                        webm: "videos/webm/login.webm",
+                        videoAdShow: "No",
+                        videoAdGotoLink: "#",
+                        mp4AD: "videos/plan.mp4",
+                        webmAD: "videos/1-login.webm",
+                        description: "ایجاد و ویرایش پلن های رژیم",
+                        thumbImg: "images/thumbnail_images/p1.jpg",
+                        info: "ورود به مدیریت"
+                    },
+                    {
+                        videoType: "HTML5",
+                        title: "لیست رژیم ها",
+                        youtubeID: "XMGoYNoMtOQ",
+                        vimeoID: "46515976",
+                        mp4: "videos/diet_list.mp4",
+                        webm: "videos/webm/login.webm",
+                        videoAdShow: "No",
+                        videoAdGotoLink: "#",
+                        mp4AD: "videos/diet_list.mp4",
+                        webmAD: "videos/1-login.webm",
+                        description: "مشاهده لیست رژیم های تجویز شده",
+                        thumbImg: "images/thumbnail_images/p1.jpg",
+                        info: "ورود به مدیریت"
+                    },
+                    {
+                        videoType: "HTML5",
+                        title: "دستور پخت",
+                        youtubeID: "XMGoYNoMtOQ",
+                        vimeoID: "46515976",
+                        mp4: "videos/recipe.mp4",
+                        webm: "videos/webm/login.webm",
+                        videoAdShow: "No",
+                        videoAdGotoLink: "#",
+                        mp4AD: "videos/recipe.mp4",
+                        webmAD: "videos/1-login.webm",
+                        description: "ایجاد و ویرایش دستور پخت",
+                        thumbImg: "images/thumbnail_images/p1.jpg",
+                        info: "ورود به مدیریت"
+                    },
+                    {
+                        videoType: "HTML5",
+                        title: "یادآوری",
+                        youtubeID: "XMGoYNoMtOQ",
+                        vimeoID: "46515976",
+                        mp4: "videos/reminder.mp4",
+                        webm: "videos/webm/login.webm",
+                        videoAdShow: "No",
+                        videoAdGotoLink: "#",
+                        mp4AD: "videos/reminder.mp4",
+                        webmAD: "videos/1-login.webm",
+                        description: "یاد اوری های اتوماتیک",
+                        thumbImg: "images/thumbnail_images/p1.jpg",
+                        info: "ورود به مدیریت"
+                    }
+                ]
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+<div id="video"></div>
+</body>
+
+</html>

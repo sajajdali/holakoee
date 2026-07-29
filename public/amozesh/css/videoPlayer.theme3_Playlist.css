@@ -1,0 +1,213 @@
+/*=====================================*/
+/*===========item general===========*/
+/*=====================================*/
+/*item left container with thumbnail_image*/
+.ult_vp_itemLeft{
+    position: absolute;
+    width:60px;
+    height: 50px;
+    z-index: 100;
+}
+/*item right container with title and description*/
+.ult_vp_itemRight{
+    position: absolute;
+    right: 0px;
+    left: 70px;
+    top: 5px;
+    font-family: Arial,Helvetica,sans-serif;
+}
+.ult_vp_title{
+    font-size: 12px;
+    color: #000000;
+    width: 100%;
+    font-size: 13px;
+    font-weight:bold;
+}
+.ult_vp_description{
+    cfont-size: 10px;
+    color: #282828;
+    width: 100%;
+    font-size: 11px;
+    padding: 2px 0px 5px 0px;
+}
+.ult_vp_thumbnail_image{
+    position:absolute;
+    height: 100%;
+    margin: 5px 5px 5px 5px;
+}
+/*=====================================*/
+/*===========right playlist===========*/
+/*=====================================*/
+#ult_vp_playlist{
+	position:absolute;
+	background: #ffffff;
+	width:260px;
+	top:0px;
+	overflow:hidden;
+
+}
+#ult_vp_playlistContent{
+	position:absolute;
+	background: #ffffff;
+	top:0px;
+	left:0px;
+	width:100%;
+    margin: 0px;
+    padding: 0px;
+}
+.ult_vp_item{
+    position: absolute;
+    width: 100%;
+    height: 64px;
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+    background: #F6F6F6;
+    color: #FFFFFF;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    cursor:pointer;
+}
+.ult_vp_item:hover{
+	width:100%;
+    background: #ececec;
+}
+.ult_vp_itemSelected{
+    width:100%;
+    height:62px;
+    background: #ececec;
+}
+.ult_vp_itemUnselected{
+    width:100%;
+    height:62px;
+    background: #F6F6F6;
+}
+
+.ult_vp_topArrow{
+    position: absolute;
+    right: 0;
+    z-index: 101;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.ult_vp_bottomArrow{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 101;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.ult_vp_myScrollbarV {
+    position:absolute;
+    z-index:100;
+    width:6px;bottom:0px;top:0px;right:0px;
+}
+.ult_vp_myScrollbarV > div {
+    position:absolute;
+    z-index:100;
+    width:100%;
+
+    background: #e1e1e1;
+    border: 1px solid;
+    border-top-color: #ffffff;
+    border-right-color: #757575;
+    border-bottom-color: #757575;
+    border-left-color: #ffffff;
+}
+
+
+
+
+
+/*=====================================*/
+/*===========bottom playlist===========*/
+/*=====================================*/
+#ult_vp_playlist_bottom{
+    position:absolute;
+    background: #ffffff;
+    height:64px;
+    overflow:hidden;
+}
+#ult_vp_playlistContent_bottom{
+    position:absolute;
+    background: #ffffff;
+    top:0px;
+    left:0px;
+    height:100%;
+    margin: 0;
+    padding: 0;
+}
+.ult_vp_item_bottom{
+    position: absolute;
+    width:250px;/*fixed width*/
+    height: 100%;
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+    background: #F6F6F6;
+    color: #FFFFFF;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    cursor:pointer;
+}
+.ult_vp_item_bottom:hover{
+    width:250px;
+    height:64px;
+    background: #ececec;
+}
+.ult_vp_itemSelected_bottom{
+    position:absolute;
+
+    width:250px;
+    height:64px;
+    background: #ececec;
+}
+.ult_vp_itemUnselected_bottom{
+    position: absolute;
+    width: 250px;
+    height: 64px;
+    background: #F6F6F6;
+}
+.ult_vp_leftArrow{
+    position: absolute;
+    width: 25px;
+    height: 50%;
+    top: 50%;
+    margin-top: -16px;
+    cursor: pointer;
+}
+.ult_vp_rightArrow{
+    right:0;
+    position: absolute;
+    width: 25px;
+    height: 50%;
+    top: 50%;
+    margin-top: -16px;
+    cursor: pointer;
+}
+/*=========Horizontal scrollbar=============*/
+.ult_vp_myScrollbarH {
+    position:absolute;
+    z-index:100;height: 6px;bottom: 0px;left:0px;right:0px
+}
+
+.ult_vp_myScrollbarH > div {
+    position:absolute;
+    z-index:100;
+    height:100%;
+
+    /* The following is probably what you want to customize */
+    background: #e1e1e1;
+    border: 1px solid;
+    border-top-color: #ffffff;
+    border-right-color: #757575;
+    border-bottom-color: #757575;
+    border-left-color: #ffffff;
+}
+
