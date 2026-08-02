@@ -28,9 +28,7 @@ class RequestDietHistoryResource extends JsonResource
 
     private function statusBadge(): array
     {
-        $status = $this->status instanceof DietRequestStatusEnum
-            ? $this->status
-            : DietRequestStatusEnum::tryFrom((int) $this->status);
+        $status = $this->historyStatus();
 
         if ($this->end_date && Carbon::parse($this->end_date)->isPast()) {
             return [
@@ -92,6 +90,31 @@ class RequestDietHistoryResource extends JsonResource
         };
     }
 
+    private function historyStatus(): ?DietRequestStatusEnum
+    {
+        if ($this->end_date && Carbon::parse($this->end_date)->isPast()) {
+            return DietRequestStatusEnum::END;
+        }
+
+        return $this->status instanceof DietRequestStatusEnum
+            ? $this->status
+            : DietRequestStatusEnum::tryFrom((int) $this->status);
+    }
+
+    private function statusKey(?DietRequestStatusEnum $status): string
+    {
+        return match ($status) {
+            DietRequestStatusEnum::ACTIVE => 'active',
+            DietRequestStatusEnum::END => 'finished',
+            DietRequestStatusEnum::PENDING => 'pending',
+            DietRequestStatusEnum::REQUESTED => 'requested',
+            DietRequestStatusEnum::REJECTED => 'rejected',
+            DietRequestStatusEnum::REJECT_BY_SYSTEM => 'system_rejected',
+            DietRequestStatusEnum::REJECT_BY_SYSTEM_HAVE_ERROR => 'system_error',
+            default => 'unknown',
+        };
+    }
+
     public function toArray($request): array
     {
         $startDate = $this->start_date ? Carbon::parse($this->start_date) : null;
@@ -100,7 +123,9 @@ class RequestDietHistoryResource extends JsonResource
         $currentDay = $startDate && $endDate && $endDate->isFuture()
             ? $startDate->diffInDays(Carbon::now()) + 1
             : 0;
+        $historyStatus = $this->historyStatus();
         $statusBadge = $this->statusBadge();
+        $isActiveDiet = (bool) $this->active && $historyStatus === DietRequestStatusEnum::ACTIVE;
 
         return [
             'id' => $this->id,
@@ -112,7 +137,11 @@ class RequestDietHistoryResource extends JsonResource
             'diet_plan_name' => $this->dietPlan?->name,
             'start_weight' => $this->user_information['WEIGHT'] ?? '',
             'status' => $endDate ? $endDate->isFuture() : false,
-            'status_code' => $this->status instanceof DietRequestStatusEnum ? $this->status->value : (int) $this->status,
+            'status_code' => $historyStatus?->value,
+            'original_status_code' => $this->status instanceof DietRequestStatusEnum ? $this->status->value : (int) $this->status,
+            'status_key' => $this->statusKey($historyStatus),
+            'is_active_diet' => $isActiveDiet,
+            'is_finished_diet' => $historyStatus === DietRequestStatusEnum::END,
             'active' => (bool) $this->active,
             'status_title' => $statusBadge['title'],
             'status_badge' => $statusBadge,
