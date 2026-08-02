@@ -4,6 +4,7 @@ namespace Modules\Api\app\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Modules\Api\Http\Controllers\Profile\DashboardController;
+use Modules\Diet\Entities\DietRequest;
 
 class RequestDietCollection extends ResourceCollection
 {
@@ -22,6 +23,13 @@ class RequestDietCollection extends ResourceCollection
         return [
             'show_diet_banner' => app(DashboardController::class)->showDietBanner($this->user),
             'request_diets' => $this->collection,
+            'diet_history' => RequestDietHistoryResource::collection(
+                DietRequest::without('dietRequestDetails')
+                    ->with('dietPlan')
+                    ->where('user_id', $this->user->id)
+                    ->orderByDesc('id')
+                    ->get()
+            ),
             'paginate' => [
                 'current_page' => $this->currentPage(),
                 'per_page' => $this->perPage(),
