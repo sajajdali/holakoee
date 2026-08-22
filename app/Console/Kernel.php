@@ -5,6 +5,7 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Modules\Diet\app\Console\ChangeFoodRestriction;
+use Modules\Diet\app\Console\CopyDietPlanFoodsCommand;
 use Modules\Diet\app\Console\CreateDietSample;
 use Modules\Diet\app\Console\DisableExpiredDietRequests;
 use Modules\Diet\app\Console\SendDietCommand;
@@ -26,6 +27,7 @@ class Kernel extends ConsoleKernel
         RecipeInsertDatabase::class,
         FixRecipeData::class,
         ChangeFoodRestriction::class,
+        CopyDietPlanFoodsCommand::class,
         SendReminderscommand::class,
         SendDietCommand::class,
         SendScheduledDiets::class,
