@@ -42,11 +42,27 @@
         </tr>
         <tr>
             <th><strong>قد</strong></th>
-            <td>{{ $userInfo['TALL'] }}</td>
+            <td>
+                @if($isEditingMeasurements)
+                    <input type="number" min="50" max="300" step="0.1" class="form-control @error('tall') is-invalid @enderror"
+                           wire:model="tall" aria-label="قد به سانتی‌متر">
+                    @error('tall') <div class="invalid-feedback d-block">{{ $message }}</div> @enderror
+                @else
+                    {{ $userInfo['TALL'] ?? '--' }} سانتی‌متر
+                @endif
+            </td>
         </tr>
         <tr>
             <th><strong>وزن</strong></th>
-            <td>{{ $userInfo['CURRENT_WEIGHT'] }}</td>
+            <td>
+                @if($isEditingMeasurements)
+                    <input type="number" min="20" max="500" step="0.1" class="form-control @error('currentWeight') is-invalid @enderror"
+                           wire:model="currentWeight" aria-label="وزن به کیلوگرم">
+                    @error('currentWeight') <div class="invalid-feedback d-block">{{ $message }}</div> @enderror
+                @else
+                    {{ $userInfo['CURRENT_WEIGHT'] ?? '--' }} کیلوگرم
+                @endif
+            </td>
         </tr>
         <tr>
             <th><strong>وزن هدف</strong></th>
@@ -126,4 +142,28 @@
         </tr>
         </tbody>
     </table>
+
+    <div class="form-group">
+        @if($isEditingMeasurements)
+            <button type="button" class="btn btn-primary" wire:click="saveMeasurements"
+                    wire:loading.attr="disabled" wire:target="saveMeasurements">
+                ثبت تغییرات
+            </button>
+            <button type="button" class="btn btn-warning" wire:click="cancelEditingMeasurements"
+                    wire:loading.attr="disabled" wire:target="cancelEditingMeasurements">
+                انصراف
+            </button>
+        @else
+            <button type="button" class="btn btn-warning" wire:click="editMeasurements">
+                ویرایش قد و وزن
+            </button>
+        @endif
+
+        @if($successFully)
+            <div class="alert alert-success mt-4 alert-dismissible fade show" role="alert">
+                <span class="alert-inner--text">{{ $successFully }}</span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+    </div>
 </div>
