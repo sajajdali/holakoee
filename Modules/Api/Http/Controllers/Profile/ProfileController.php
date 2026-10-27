@@ -54,7 +54,7 @@ class ProfileController extends Controller
         ]);
 
         $user = auth()->user();
-        $user->target_weight = request()->input('weight');
+        $user->updateCurrentWeight($request->input('weight'));
 
         return $this->ok([
             'status' => true,
@@ -378,7 +378,7 @@ class ProfileController extends Controller
                     break;
 
                 case self::ACTION_WEIGHT:
-                    $user->weight = $value;
+                    $user->updateCurrentWeight($value);
                     $messages[] = 'وزن با موفقیت ویرایش شد';
                     $status = true;
                     break;
@@ -565,7 +565,7 @@ class ProfileController extends Controller
                     'icon' => 'weight',
                     'action' => 'weight',
                     'title' => 'وزن',
-                    'value' => $user->weight . ' کیلوگرم',
+                    'value' => app('dietService')->getCurrentWeight($user) . ' کیلوگرم',
                 ],
                 'activity' => [
                     'icon' => 'activity',

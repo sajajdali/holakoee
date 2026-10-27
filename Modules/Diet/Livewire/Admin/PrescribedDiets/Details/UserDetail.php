@@ -78,7 +78,7 @@ class UserDetail extends Component
             $user = $dietRequest->user;
 
             $user->setMetas(UserMetaEnum::TALL, $validated['tall']);
-            $user->setMetas(UserMetaEnum::CURRENT_WEIGHT, $validated['currentWeight']);
+            $user->updateCurrentWeight($validated['currentWeight']);
 
             $userInformation = $dietRequest->user_information ?? [];
             $userInformation['TALL'] = $validated['tall'];

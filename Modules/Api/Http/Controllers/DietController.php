@@ -688,7 +688,7 @@ class DietController extends Controller
         $plan_id = $request->input('plan_id');
         $target_plan = $request->input('target_plan') ?? $request->input('target_plan_id');
 
-        $user->current_weight = $userWeight;
+        $user->updateCurrentWeight($userWeight);
         $user->refresh();
 
         if (!$user->activePackage()){

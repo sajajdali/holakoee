@@ -6,6 +6,48 @@
         </div>
     </div>
     <!-- PAGE-HEADER END -->
+    <div class="card chat-search-card">
+        <div class="card-body">
+            <label class="form-label" for="chat-user-search">جست‌وجوی کاربر</label>
+            <div class="input-group chat-search-group">
+                <span class="input-group-text" aria-hidden="true">
+                    <i class="fe fe-search"></i>
+                </span>
+                <input id="chat-user-search"
+                       type="search"
+                       class="form-control"
+                       placeholder="نام یا شماره موبایل کاربر را وارد کنید"
+                       autocomplete="off"
+                       inputmode="search"
+                       wire:model="searchInput"
+                       wire:keydown.enter="applySearch">
+                <button type="button"
+                        class="btn btn-primary chat-search-submit"
+                        wire:click="applySearch"
+                        wire:loading.attr="disabled"
+                        wire:target="applySearch">
+                    <span wire:loading.remove wire:target="applySearch">
+                        <i class="fe fe-search ms-1"></i>
+                        جست‌وجو
+                    </span>
+                    <span wire:loading wire:target="applySearch">
+                        <span class="spinner-border spinner-border-sm ms-1" role="status" aria-hidden="true"></span>
+                        در حال جست‌وجو
+                    </span>
+                </button>
+                @if($search !== '' || $searchInput !== '')
+                    <button type="button"
+                            class="btn btn-outline-secondary chat-search-clear"
+                            wire:click="clearSearch"
+                            wire:loading.attr="disabled"
+                            aria-label="پاک کردن جست‌وجو">
+                        <i class="fe fe-x"></i>
+                        <span>پاک کردن</span>
+                    </button>
+                @endif
+            </div>
+        </div>
+    </div>
     @if($chats->isNotEmpty())
         <!-- Row -->
         <div class="row row-deck">
@@ -18,8 +60,11 @@
                                 <div class="tab-pane active" id="ChatList">
                                     <div class="main-chat-list tab-pane">
                                         @foreach($chats as $chatItem)
-                                            <a class="cursor-pointer media @if($chatItem->id == $chatId) selected @else new @endif @if($loop->first) border-top-0 @endif @if($loop->last) border-bottom-0 @endif"
-                                               wire:click="selectChatRoom({{ $chatItem->id }})">
+                                            <a href="{{ route('admin.chat', ['chatId' => $chatItem->id, 'search' => $search]) }}"
+                                               class="chat-item cursor-pointer media @if($chatItem->id == $chatId) selected @else new @endif @if($chatItem->assignee) has-support @endif @if($loop->first) border-top-0 @endif @if($loop->last) border-bottom-0 @endif"
+                                               wire:key="chat-room-{{ $chatItem->id }}"
+                                               wire:click.prevent="selectChatRoom({{ $chatItem->id }})"
+                                               @if($chatItem->id == $chatId) aria-current="true" @endif>
                                                 <div class="main-img-user online">
                                                     <img alt="{{ $chatItem->user?->full_name }}"
                                                          src="{{ $chatItem->user?->avatar }}">
@@ -35,6 +80,10 @@
                                                         @endif
                                                     </div>
                                                     <p> {{ $chatItem->latest_message_excerpt }} </p>
+                                                    <div class="chat-user-mobile">
+                                                        <i class="fe fe-phone ms-1"></i>
+                                                        <span dir="ltr">{{ $chatItem->user?->mobile }}</span>
+                                                    </div>
                                                     @if($chatItem->assignee)
 
                                                         <div class="support-badge mt-1">
@@ -55,8 +104,8 @@
                     </div>
                 </div>
             </div>
-            @if($chatId != 0)
-                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-8">
+            @if($chatId != 0 && $chats->contains('id', $chatId))
+                <div id="chat-room-panel" class="col-sm-12 col-md-12 col-lg-12 col-xl-8">
                     <div class="card">
                         <div class="main-content-app pt-0">
                             <div class="main-content-body main-content-body-chat h-100">
@@ -178,7 +227,11 @@
         <div class="row">
             <div class="col-12">
                 <div class="alert alert-info">
-                    هنوز چتی آغاز نشده است.
+                    @if($search !== '')
+                        کاربری با این نام یا شماره موبایل در گفت‌وگوها پیدا نشد.
+                    @else
+                        هنوز چتی آغاز نشده است.
+                    @endif
                 </div>
             </div>
         </div>
@@ -187,6 +240,33 @@
 @push('scripts')
 
     <style>
+
+        .chat-search-card .card-body {
+            padding: 1rem;
+        }
+
+        .chat-search-group {
+            max-width: 680px;
+        }
+
+        .chat-user-mobile {
+            display: flex;
+            align-items: center;
+            color: #64748b;
+            direction: rtl;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        /* لینک واقعی باعث می‌شود لمس موبایل و fallback بدون JavaScript هم کار کند. */
+        .main-chat-list a.chat-item {
+            width: 100%;
+            margin: 0;
+            color: inherit;
+            text-align: right;
+            text-decoration: none;
+            touch-action: manipulation;
+        }
 
 
         /* بدنه‌ی آیتم چت ستونی شود تا سطرها روی هم نروند */
@@ -250,9 +330,11 @@
             border-right:5px solid #3B82F6;
             background:linear-gradient(90deg, rgba(59,130,246,.05) 0%, rgba(59,130,246,.02) 100%);
         }
-        .chat-item.has-support:hover{
-            background:linear-gradient(90deg, rgba(59,130,246,.12) 0%, rgba(59,130,246,.05) 100%);
-            transform:translateY(-1px);
+        @media (hover: hover) and (pointer: fine) {
+            .chat-item.has-support:hover{
+                background:linear-gradient(90deg, rgba(59,130,246,.12) 0%, rgba(59,130,246,.05) 100%);
+                transform:translateY(-1px);
+            }
         }
 
 
@@ -261,6 +343,31 @@
             .main-chat-list {
                 max-height: calc(100vh - 200px);
                 overflow-y: auto;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .chat-search-card .card-body {
+                padding: .75rem;
+            }
+
+            .chat-search-group {
+                max-width: none;
+            }
+
+            .chat-search-group .form-control {
+                min-width: 0;
+                font-size: .85rem;
+            }
+
+            .chat-search-clear > span {
+                display: none;
+            }
+
+            .chat-search-submit {
+                padding-right: .65rem;
+                padding-left: .65rem;
+                white-space: nowrap;
             }
         }
     </style>
@@ -284,13 +391,21 @@
             });
         });
         Livewire.on('chatRoomSelected', () => {
-            //add delay to scroll to bottom
-            setTimeout(function () {
-                var ps5 = new PerfectScrollbar('#ChatBody', {
-                    useBothWheelAxes: true,
-                    suppressScrollX: true
-                });
-            }, 1000);
+            requestAnimationFrame(() => {
+                const chatBody = document.getElementById('ChatBody');
+                const chatPanel = document.getElementById('chat-room-panel');
+
+                if (chatBody && !chatBody.classList.contains('ps') && typeof PerfectScrollbar !== 'undefined') {
+                    new PerfectScrollbar(chatBody, {
+                        useBothWheelAxes: true,
+                        suppressScrollX: true
+                    });
+                }
+
+                if (chatPanel && window.matchMedia('(max-width: 1199.98px)').matches) {
+                    chatPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
         });
     </script>
 @endpush

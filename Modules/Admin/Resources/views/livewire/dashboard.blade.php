@@ -242,6 +242,12 @@
             inset: 0;
             background: radial-gradient(circle at top left, rgba(255,255,255,0.25), transparent 65%);
             opacity: 0.8;
+            pointer-events: none;
+        }
+
+        .newq-box .card-body {
+            position: relative;
+            z-index: 1;
         }
 
         .newq-icon {
@@ -253,10 +259,6 @@
             justify-content: center;
             transition: transform .3s ease;
         }
-        .newq-box:hover .newq-icon {
-            transform: scale(1.1);
-        }
-
         .newq-box h2 {
             font-size: 2.4rem;
             color: #fff;
@@ -270,15 +272,21 @@
             background: #fff;
             transition: all .3s ease;
         }
-        .newq-box .btn-light:hover {
-            background: #ffe3c4;
-            transform: scale(1.05);
-        }
+        /* افکت‌های هاور فقط روی دستگاه‌هایی که واقعاً hover دارند اجرا شوند. */
+        @media (hover: hover) and (pointer: fine) {
+            .newq-box:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 18px 40px rgba(244, 177, 131, 0.55);
+            }
 
-        /* افکت هاور روی کل باکس */
-        .newq-box:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 18px 40px rgba(244, 177, 131, 0.55);
+            .newq-box:hover .newq-icon {
+                transform: scale(1.1);
+            }
+
+            .newq-box .btn-light:hover {
+                background: #ffe3c4;
+                transform: scale(1.05);
+            }
         }
     </style>
 @endsection

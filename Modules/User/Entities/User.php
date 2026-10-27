@@ -308,7 +308,12 @@ class User extends Authenticatable
     public function setMetas(UserMetaEnum $metaKey, $value): void
     {
         // Check if a meta with the given key already exists
-        $meta = $this->metas()->where('meta_key', $metaKey)->first();
+        // Accessors return the most recently-created value. Update that same row
+        // when legacy data contains more than one entry for a normally singular key.
+        $meta = $this->metas()
+            ->where('meta_key', $metaKey)
+            ->latest('id')
+            ->first();
 
         if ($meta) {
             // Update the existing meta value
@@ -321,6 +326,23 @@ class User extends Authenticatable
                 'meta_value' => $value,
             ]);
         }
+    }
+
+    /**
+     * Keep the user's canonical current weight and weight history in sync.
+     */
+    public function updateCurrentWeight($value): void
+    {
+        $this->setMetas(UserMetaEnum::CURRENT_WEIGHT, $value);
+
+        if (!is_numeric($this->weight) || (float) $this->weight !== (float) $value) {
+            $this->weight = $value;
+        }
+
+        // setMetas and the weight mutator write through separate queries, so reload
+        // the eager-loaded relation for callers that keep using this model instance.
+        $this->unsetRelation('metas');
+        $this->load('metas');
     }
 
     public function supporter(): belongsToMany
